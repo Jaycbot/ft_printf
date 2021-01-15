@@ -6,21 +6,32 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:36:48 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/15 02:18:20 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/16 04:44:02 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    content_init(t_contents *contents)
+int parse_spec(char type, t_contents *contents, va_list ap)
 {
-    contents->zero = 0;
-    contents->minus = 0;
-    contents->precision = DEFAULT;
-    contents->width = 0;
+    int ret;
+    
+    if (type == 'c' | type == '%')
+        ret = parse_c(contents, ap);
+    else if (type == 's')
+        ret = parse_s(contents, ap);
+    else if (type == 'u')
+        ret = parse_u(contents, ap);
+    else if (type == 'd' || type == 'i')
+        ret = parse_i(contents, ap);
+    else if (type == 'x' || type == 'X')
+        ret = parse_x(type, contents, ap);
+    else if (type == 'p')
+        ret = parse_p(contents, ap);
+    return (ret);
 }
 
-void check_flags(t_contents *contents, va_list ap, const char **format)
+void    check_flags(t_contents *contents, const char **format)
 {
     if (**format == '-')
     {
@@ -44,26 +55,62 @@ void check_flags(t_contents *contents, va_list ap, const char **format)
     }
 }
 
-int ft_printf(const char *format, ...)
+void    check_width(t_contents *contents, const char **format, va_list ap)
+{
+    
+    if (ft_isdigit(**format))
+    {
+        contents->width = ft_atoi(*format);
+        while (ft_isdigit(**format))
+            ++(*format);
+    }
+    else if (**format == '*')
+    {
+        contents->width = va_arg(ap, int);
+        ++(*format);
+    }
+}
+
+void   check_pre(t_contents *contents, const char **format, va_list ap)
+{
+    if (**format == '.')
+    {
+        ++(*format);
+        if (ft_isdigit(**format))
+        {
+            contents->precision = ft_atoi(*format);
+            while (ft_isdigit(**format))
+                ++(*format);
+        }
+        else if (**format == '*')
+        {
+            contents->precision = va_arg(ap, int);
+            ++(*format);
+        }
+    }
+}
+
+int     ft_printf(const char *format, ...)
 {
     int         ret;
-    int         i;
     t_contents  contents;
     va_list     ap;
 
     va_start(ap, format);
     ret = 0;
-    while (format[i])
+    while (*format)
     {
-        if (format[i] == '%')
+        if (*format == '%')
         {
             content_init(&contents);
-            check_flags(&contents, ap, &format);
-            //while (format[++i] && !ft_strchr("cspdiuxX%", format[i]))            
-            //    add_contents(&contents, ap, format[i]);
+            check_flags(&contents, &format);
+            check_width(&contents, &format, ap);
+            check_pre(&contents, &format, ap);
+            if (ft_strchr(SPEC, *format))
+               ret += parse_spec(*format, &contents, ap);
         }
         else
-            write(1, &format[i++], 1);
+            ret += ret_with_write(*format++);
     }
     return (ret);
 }
