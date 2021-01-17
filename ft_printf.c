@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:36:48 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/17 23:33:10 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/18 01:55:33 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int     ft_printf(const char *format, ...)
             check_flags(&contents, &format);
             check_width(&contents, &format, ap);
             check_pre(&contents, &format, ap);
-            check_len(&contents, &format, ap);
+            check_len(&contents, &format);
             if (ft_strchr(SPEC, *format))
                ret += parse_spec(*format, &contents, ap);
         }
