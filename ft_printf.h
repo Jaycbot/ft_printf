@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:41:53 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/18 01:55:23 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/18 23:12:26 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,13 @@ int     ft_printf(const char *format, ...);
 int	    ret_with_write(char c);
 void    check_len(t_contents *contents, const char **format);
 void    content_init(t_contents *contents);
+int     encode_utf_8(wint_t unicode);
 int     parse_c(t_contents *contents, va_list ap);
 int     parse_s(t_contents *contents, va_list ap);
 int     parse_u(t_contents *contents, va_list ap);
 int     parse_i(t_contents *contents, va_list ap);
 int     parse_x(char type, t_contents *contents, va_list ap);
 int     parse_p(t_contents *contents, va_list ap);
+int     parse_perc(t_contents *contents);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 23:47:46 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/18 01:55:13 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/18 23:12:17 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,5 @@ void    check_len(t_contents *contents, const char **format)
 
 int	    ret_with_write(char c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }

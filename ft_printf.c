@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:36:48 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/18 01:55:33 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/18 22:02:30 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int parse_spec(char type, t_contents *contents, va_list ap)
 {
     int ret;
     
-    if (type == 'c' | type == '%')
+    if (type == 'c')
         ret = parse_c(contents, ap);
     else if (type == 's')
         ret = parse_s(contents, ap);
@@ -28,6 +28,8 @@ int parse_spec(char type, t_contents *contents, va_list ap)
         ret = parse_x(type, contents, ap);
     else if (type == 'p')
         ret = parse_p(contents, ap);
+    else if (type == '%')
+        ret = parse_perc(contents);
     return (ret);
 }
 
@@ -108,7 +110,7 @@ int     ft_printf(const char *format, ...)
             check_pre(&contents, &format, ap);
             check_len(&contents, &format);
             if (ft_strchr(SPEC, *format))
-               ret += parse_spec(*format, &contents, ap);
+               ret += parse_spec(*format++, &contents, ap);
         }
         else
             ret += ret_with_write(*format++);
