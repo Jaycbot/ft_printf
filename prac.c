@@ -9,7 +9,7 @@ int main(void)
     // printf("%d",b);
     // if (b < 0)
     //     perror("printf");
-    while (-2)
+    while (0)
         printf("11");
     return (0);
 }

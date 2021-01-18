@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 04:03:22 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/18 23:34:42 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/19 00:01:55 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,29 @@ static int  uni_size(wint_t uni)
         return (4);
 }
 
+static int  parse_unicode(wint_t uni, t_contents *f, int iter, int size)
+{
+    if (f->minus)
+    {
+        encode_utf_8(uni);
+        while (iter--)
+            ret_with_write(' ');
+    }
+    else if (f->zero)
+    {
+        while(iter--)
+            ret_with_write('0');
+        encode_utf_8(uni);
+    }
+    else
+    {
+        while (iter--)
+            ret_with_write(' ');
+        encode_utf_8(uni);
+    }
+    return ((size < f->width) ? f->width : size);
+}
+
 static int  parse_uni_width(wint_t uni, t_contents *f)
 {
     int written;
@@ -31,26 +54,11 @@ static int  parse_uni_width(wint_t uni, t_contents *f)
     int i;
 
     size = uni_size(uni);
+    f->width = (f->width < 0) ? -f->width : f->width;
     i = f->width - size;
-    if (f->minus)
-    {
-        encode_utf_8(uni);
-        while (i--)
-            ret_with_write(' ');
-    }
-    else if (f->zero)
-    {
-        while(i--)
-            ret_with_write('0');
-        encode_utf_8(uni);
-    }
-    else
-    {
-        while (i--)
-            ret_with_write(' ');
-        encode_utf_8(uni);
-    }
-    return ((size < f->width) ? f->width : size);
+    if (i < size)
+        i = 0;
+    return (parse_unicode(uni, f, i, size));
 }
 
 static int  parse_width(t_contents *f, int c)
@@ -92,12 +100,12 @@ int     parse_c(t_contents *contents, va_list ap)
     if (contents->length == 1)
     {
         unic = va_arg(ap, int);
-        ret = parse_uni_width(unic, &contents);
+        ret = parse_uni_width(unic, contents);
     }
     else
     {
         c = va_arg(ap, int);
-        ret = parse_width(&contents, c);
+        ret = parse_width(contents, c);
     }
-    
+    return (ret);
 }
