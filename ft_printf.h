@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:41:53 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 02:17:41 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/20 02:32:06 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <wchar.h>
-# include "./libft/libft.h"
+# include "./libf/libft.h"
 
 # define DEFAULT -1
 # define SPEC "scduixXp%"
