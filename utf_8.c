@@ -6,13 +6,13 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 22:25:50 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/18 01:51:38 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/19 22:39:08 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int  utf_8_4B(wint_t unicode)
+static int  utf_8_4B(wchar_t unicode)
 {
     unsigned char   unit;
 
@@ -27,7 +27,7 @@ static int  utf_8_4B(wint_t unicode)
     return (4);
 }
 
-static int  utf_8_3B(wint_t unicode)
+static int  utf_8_3B(wchar_t unicode)
 {
     unsigned char   unit;
 
@@ -40,7 +40,7 @@ static int  utf_8_3B(wint_t unicode)
     return (3);
 }
 
-static int  utf_8_2B(wint_t unicode)
+static int  utf_8_2B(wchar_t unicode)
 {
     unsigned char   unit;
 
@@ -51,7 +51,7 @@ static int  utf_8_2B(wint_t unicode)
     return (2);
 }
 
-static int utf_8_1B(wint_t unicode)
+static int utf_8_1B(wchar_t unicode)
 {
     unsigned char   unit;
     
@@ -60,7 +60,7 @@ static int utf_8_1B(wint_t unicode)
     return (1);
 }
 
-int encode_utf_8(wint_t unicode)
+int encode_utf_8(wchar_t unicode)
 {
     if ((unicode | UTF_8_1B) == UTF_8_1B)
         return (utf_8_1B(unicode));

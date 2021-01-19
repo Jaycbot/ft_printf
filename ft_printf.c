@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:36:48 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/18 22:02:30 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/19 23:30:11 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ void   check_pre(t_contents *contents, const char **format, va_list ap)
             contents->precision = va_arg(ap, int);
             ++(*format);
         }
+        else
+            contents->precision = 0;
     }
 }
 
