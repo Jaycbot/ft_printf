@@ -6,15 +6,49 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 04:08:42 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 00:31:27 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/20 02:27:38 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	parse_uni_s(wchar_t *uni, t_contents *f)
+static int	uni_flag(wchar_t *uni, int size, t_contents *f)
 {
 	int	n;
+	
+	size = uni_sub_size(uni, 0, size);
+	n = (f->width < size) ? 0 : (f->width - size);
+	if (f->minus)
+	{
+		print_uni_substr(uni, 0, size);
+		while (n--)
+			ret_with_write(' ');
+	}
+	else if (f->zero)
+	{
+		while (n--)
+			ret_with_write('0');
+		print_uni_substr(uni, 0, size);
+	}
+	else
+	{
+		while (n--)
+			ret_with_write(' ');
+		print_uni_substr(uni, 0, size);
+	}
+	return ((f->width > size ? f->width : size));
+}
+
+static int	parse_uni_s(wchar_t *uni, t_contents *f)
+{
+	int	len;
+	int	print_size;
+
+	len = uni_s_size(uni);
+	if (f->precision < 0)
+		return (no_pre_uni(uni, f));
+	print_size = (f->precision > len ? len : f->precision);
+	return (uni_flag(uni , print_size, f));
 }
 
 static int	plain_flag(char *str, int size, t_contents *f)
@@ -40,16 +74,14 @@ static int	plain_flag(char *str, int size, t_contents *f)
 			ret_with_write(' ');
 		print_substr(str, 0, size);
 	}
-	return ((f->width > size ? f->sidth : size));
+	return ((f->width > size ? f->width : size));
 }
 
 static int	parse_plain(char *str, t_contents *f)
 {
-	int	ret;
 	int	len;
 	int	print_size;
 
-	ret = 0;
 	len = ft_strlen(str);
 	if (f->precision < 0)
 		return (no_pre_plain(str, f));
@@ -63,10 +95,10 @@ int			parse_s(t_contents *contents, va_list ap)
 	wchar_t	*uni_str;
 	char	*str;
 
-	if (f->width < 0)
+	if (contents->width < 0)
 	{
-		f->minus = 1;
-		f->width *= -1;
+		contents->minus = 1;
+		contents->width *= -1;
 	}
 	if (contents->length == 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:41:53 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 00:17:46 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/20 02:17:41 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int				ft_putstr(char *c);
 int				uni_size(wchar_t uni);
 int				uni_s_size(wchar_t *uni);
 void			print_substr(char const *s, unsigned int start, size_t len);
-
+void			print_uni_substr(wchar_t *uni, unsigned int start, size_t len);
+int				uni_sub_size(wchar_t *uni, unsigned int start, size_t len);
 #endif
