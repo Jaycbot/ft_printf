@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 22:41:06 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 02:26:58 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/20 23:15:35 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int		uni_size(wchar_t uni)
 	else
 		return (4);
 }
-
 
 int		uni_s_size(wchar_t *uni)
 {
@@ -51,6 +50,7 @@ int		uni_sub_size(wchar_t *uni, unsigned int start, size_t len)
 {
 	size_t	count;
 	size_t	temp;
+
 	count = uni_size(*uni);
 	if (len < count)
 		return (0);
