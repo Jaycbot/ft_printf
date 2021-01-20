@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaehchoi <jaehchoi@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 16:36:39 by jaehchoi          #+#    #+#             */
-/*   Updated: 2020/12/24 17:06:29 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/20 21:13:32 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static size_t	size_n(int n)
 	return (ret);
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long long int n)
 {
 	char	*ret;
 	size_t	size;

@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:41:53 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 16:15:34 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/20 21:29:38 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,8 @@ void			print_substr(char const *s, unsigned int start, size_t len);
 void			print_uni_substr(wchar_t *uni, unsigned int start, size_t len);
 int				uni_sub_size(wchar_t *uni, unsigned int start, size_t len);
 void			pt_print(unsigned long pt);
+void			modify_width(t_contents *f);
+int				int_parse(t_contents *f, int n, int digit);
+void			itoa_free(long long int n);
+
 #endif

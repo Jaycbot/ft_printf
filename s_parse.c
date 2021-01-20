@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 04:08:42 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 02:27:38 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/20 21:03:13 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,7 @@ int			parse_s(t_contents *contents, va_list ap)
 	wchar_t	*uni_str;
 	char	*str;
 
-	if (contents->width < 0)
-	{
-		contents->minus = 1;
-		contents->width *= -1;
-	}
+	modify_width(contents);
 	if (contents->length == 1)
 	{
 		uni_str = va_arg(ap, int *);

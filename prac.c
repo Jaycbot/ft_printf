@@ -16,8 +16,11 @@ int main(void)
     // if ((k = printf("%.4ls",L"안녕")) < 0)
     //     perror("printf");
 
-    // printf("%.2lc", L'안');
-    int *kp = &k;
-    printf("%.p", kp);
+    // // printf("%.2lc", L'안');
+    // int *kp = &k;
+    // printf("%.p", kp);
+    k = printf("%3d",-1);
+    printf("\n");
+    printf("%d\n",k);
     return (0);
 }
