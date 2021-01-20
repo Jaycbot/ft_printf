@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 16:14:42 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 16:19:01 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/20 16:42:29 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 static void	print_mem(unsigned long pt, int depth)
 {
-	char *hex = "0123456789abcdef";
-	
+	char *hex;
+
+	hex = "0123456789abcdef";
 	if (depth == 12)
 		return ;
 	print_mem(pt / 16, ++depth);

@@ -6,18 +6,17 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 04:44:17 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 16:34:53 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/20 16:41:24 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
 static int	pt_sep(int digit, t_contents *f, unsigned long pt)
 {
 	int	n;
 
-	n = (f->width > digit) ? (f->width - digit) -2 : digit -2;
+	n = (f->width > digit) ? (f->width - digit) - 2 : digit - 2;
 	if (n < 0)
 		n = 0;
 	if (f->minus)
@@ -30,7 +29,7 @@ static int	pt_sep(int digit, t_contents *f, unsigned long pt)
 	{
 		while (n--)
 			ret_with_write('0');
-			pt_print(pt);
+		pt_print(pt);
 	}
 	else
 	{
@@ -41,7 +40,7 @@ static int	pt_sep(int digit, t_contents *f, unsigned long pt)
 	return ((f->width > digit + 2) ? f->width : digit + 2);
 }
 
-int 		parse_p(t_contents *contents, va_list ap)
+int			parse_p(t_contents *contents, va_list ap)
 {
 	unsigned long	pt;
 	int				digit;
