@@ -1,9 +1,15 @@
 #include <stdio.h>
 #include <locale.h>
+
+int    print_some(long long int a)
+{
+    return (a + 1);
+}
+
 int main(void)
 {
     // int b = 0;
-    int k = 0;
+    // int k = 0;
     setlocale(LC_ALL, "ko_KR.UTF-8");
     // unsigned int a = L'안';
     // b = printf("%4lc", a);
@@ -19,8 +25,14 @@ int main(void)
     // // printf("%.2lc", L'안');
     // int *kp = &k;
     // printf("%.p", kp);
+    int k;
     k = printf("%3d",-1);
     printf("\n");
-    printf("%d\n",k);
+    printf("k is ->%d\n",k);
+    // int a  = 1;
+
+    // a = print_some(a);
+
+    // printf("%.3d", -2);
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 04:33:27 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 21:26:35 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/20 22:36:18 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,15 @@ void		itoa_free(long long int n)
 	char	*temp;
 
 	temp = ft_itoa(n);
+	ft_putstr(temp);
+	free(temp);
+}
+
+void		itoa_nosign_free(long long int n)
+{
+	char	*temp;
+
+	temp = itoa_without_sign(n);
 	ft_putstr(temp);
 	free(temp);
 }
@@ -52,9 +61,11 @@ int			parse_i(t_contents *contents, va_list ap)
 	else if (contents->length == 1)
 	{
 		ln = va_arg(ap, long int);
+		return (int_parse(contents, ln, cal_digit(ln)));
 	}
 	else
 	{
 		lln = va_arg(ap, long long int);
+		return (int_parse(contents, lln, cal_digit(lln)));
 	}
 }
