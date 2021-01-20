@@ -13,10 +13,11 @@ int main(void)
     // while (0)
     //     printf("11");
     // char *s = "(null)";
-    if ((k = printf("%.4ls",L"안녕")) < 0)
-        perror("printf");
+    // if ((k = printf("%.4ls",L"안녕")) < 0)
+    //     perror("printf");
 
     // printf("%.2lc", L'안');
-
+    int *kp = &k;
+    printf("%.p", kp);
     return (0);
 }
