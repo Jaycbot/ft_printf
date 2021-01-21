@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:19:33 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 04:13:03 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 05:11:44 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,21 @@ int			print_neg_pre_n(t_contents *f, long long int n, int digit)
 	i = (f->width >= (digit + minus)) ? (f->width - digit) - minus : 0;
 	if (f->minus)
 	{
-		itoa_free(n);
-		while (i--)
-			ret_with_write(' ');
+		if (digit)
+			itoa_free(n);
+		fill_space(i, ' ');
 	}
 	else if (f->zero)
 	{
-		while (i--)
-			ret_with_write('0');
-		itoa_free(n);
+		fill_space(i, '0');
+		if (digit)
+			itoa_free(n);
 	}
 	else
 	{
-		while (i--)
-			ret_with_write(' ');
-		itoa_free(n);
+		fill_space(i, ' ');
+		if (digit)
+			itoa_free(n);
 	}
 	return ((f->width > digit + minus) ? f->width : digit + minus);
 }

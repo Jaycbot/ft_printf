@@ -9,7 +9,7 @@ int	main(void)
 
 	b = 1;
 	c = &b;
-	a = ft_printf("%04.*d\n", 1,198);
+	a = ft_printf("%.0d\n", 0);
 
 	return (0);
 }

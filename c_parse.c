@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 04:03:22 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 02:29:27 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 05:12:16 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	parse_uni_width(wchar_t uni, t_contents *f)
 static int	parse_width(t_contents *f, int c)
 {
 	int i;
-	
+
 	i = f->width - 1;
 	if (i < 0)
 		i = 0;
