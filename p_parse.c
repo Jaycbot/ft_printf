@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 04:44:17 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 21:02:43 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 02:51:22 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	pt_sep(int digit, t_contents *f, unsigned long pt)
 {
 	int	n;
 
-	n = (f->width > digit) ? (f->width - digit) - 2 : digit - 2;
+	n = (f->width > digit) ? (f->width - digit) - 2 : 0;
 	if (n < 0)
 		n = 0;
 	if (f->minus)

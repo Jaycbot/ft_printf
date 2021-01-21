@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 20:59:44 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 01:04:54 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 02:23:23 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,15 @@ char	*itoa_without_sign_u(unsigned long long n)
 		n /= 10;
 	}
 	return (ret);
+}
+
+int		is_in(char *s, char c)
+{
+	while (*s)
+	{
+		if (*s == c)
+			return (1);
+		++s;
+	}
+	return (0);
 }

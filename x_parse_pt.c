@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 00:04:52 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 00:18:21 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 03:06:34 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int			print_neg_pre_hex(t_contents *f, unsigned long long n, int digit)
 {
 	int	i;
 
-	i = (f->width > digit) ? f->width : digit;
+	i = (f->width > digit) ? f->width - digit : 0;
 	if (f->minus)
 	{
 		print_hex(n, 0, digit, f->cap);

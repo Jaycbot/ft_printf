@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 04:03:22 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 00:50:32 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 02:29:27 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static int	parse_uni_width(wchar_t uni, t_contents *f)
 	int i;
 
 	size = uni_size(uni);
-	f->width = (f->width < 0) ? -f->width : f->width;
 	i = f->width - size;
 	if (i < size)
 		i = 0;
@@ -51,9 +50,10 @@ static int	parse_uni_width(wchar_t uni, t_contents *f)
 static int	parse_width(t_contents *f, int c)
 {
 	int i;
-
-	f->width = (f->width < 0) ? -f->width : f->width;
+	
 	i = f->width - 1;
+	if (i < 0)
+		i = 0;
 	if (f->minus)
 	{
 		ret_with_write(c);
@@ -72,7 +72,7 @@ static int	parse_width(t_contents *f, int c)
 			ret_with_write(' ');
 		ret_with_write(c);
 	}
-	return ((1 < f->width) ? 1 : f->width);
+	return ((1 < f->width) ? f->width : 1);
 }
 
 int			parse_c(t_contents *contents, va_list ap)
@@ -82,8 +82,7 @@ int			parse_c(t_contents *contents, va_list ap)
 	unsigned int	c;
 
 	ret = 0;
-	if (contents->width < 0)
-		contents->minus = 1;
+	modify_width(contents);
 	if (contents->length == 1)
 	{
 		unic = va_arg(ap, int);

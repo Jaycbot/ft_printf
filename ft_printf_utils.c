@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 23:47:46 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 00:52:57 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 02:54:44 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int		ft_putstr(char *c)
 	int	read_b;
 
 	read_b = 0;
-	while (*c++)
-		read_b += write(1, c, 1);
+	while (*c)
+		read_b += write(1, c++, 1);
 	return (read_b);
 }

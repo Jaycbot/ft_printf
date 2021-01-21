@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 23:11:06 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 01:03:37 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 03:05:39 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int			print_neg_pre_un(t_contents *f, unsigned long long n, int digit)
 {
 	int	i;
 
-	i = (f->width > digit) ? f->width : digit;
+	i = (f->width > digit) ? f->width : 0;
 	if (f->minus)
 	{
 		itoa_free_u(n);

@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:36:48 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 01:13:43 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 02:41:28 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,20 +102,22 @@ int		ft_printf(const char *format, ...)
 
 	va_start(ap, format);
 	ret = 0;
-	while (*format)
+	while (*format != '\0')
 	{
 		if (*format == '%')
 		{
+			++format;
 			content_init(&contents);
 			check_flags(&contents, &format);
 			check_width(&contents, &format, ap);
 			check_pre(&contents, &format, ap);
 			check_len(&contents, &format);
-			if (ft_strchr(SPEC, *format))
-				ret += parse_spec(*format++, &contents, ap);
+			if (is_in(SPEC, *format))
+				ret += parse_spec(*format, &contents, ap);
 		}
 		else
-			ret += ret_with_write(*format++);
+			ret += ret_with_write(*format);
+		++format;
 	}
 	return (ret);
 }
