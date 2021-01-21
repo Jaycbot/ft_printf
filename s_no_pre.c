@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 22:24:18 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/19 23:24:57 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/21 23:19:40 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	no_pre_plain(char *s, t_contents *f)
 		ft_putstr(s);
 		while (n--)
 			ret_with_write(' ');
-	}	
+	}
 	else if (f->zero)
 	{
 		while (n--)

@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 04:08:42 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 21:03:13 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 00:02:19 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	uni_flag(wchar_t *uni, int size, t_contents *f)
 {
 	int	n;
-	
+
 	size = uni_sub_size(uni, 0, size);
 	n = (f->width < size) ? 0 : (f->width - size);
 	if (f->minus)
@@ -48,13 +48,13 @@ static int	parse_uni_s(wchar_t *uni, t_contents *f)
 	if (f->precision < 0)
 		return (no_pre_uni(uni, f));
 	print_size = (f->precision > len ? len : f->precision);
-	return (uni_flag(uni , print_size, f));
+	return (uni_flag(uni, print_size, f));
 }
 
 static int	plain_flag(char *str, int size, t_contents *f)
 {
 	int	n;
-	
+
 	n = (f->width < size) ? 0 : (f->width - size);
 	if (f->minus)
 	{
@@ -86,7 +86,7 @@ static int	parse_plain(char *str, t_contents *f)
 	if (f->precision < 0)
 		return (no_pre_plain(str, f));
 	print_size = (f->precision > len ? len : f->precision);
-	return (plain_flag(str , print_size, f));
+	return (plain_flag(str, print_size, f));
 }
 
 int			parse_s(t_contents *contents, va_list ap)

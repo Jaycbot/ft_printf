@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 20:59:44 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 22:21:58 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 00:46:46 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,30 @@ void	fill_space(int num, char c)
 		ret_with_write(c);
 }
 
-char		*itoa_without_sign(long long int n)
+char	*itoa_without_sign(long long int n)
+{
+	char	*ret;
+	size_t	size;
+	size_t	i;
+	int		sign;
+
+	if (!n)
+		return (ft_strdup("0"));
+	size = size_n(n);
+	sign = (n < 0) ? -1 : 1;
+	if (!(ret = (char *)malloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	ret[size] = 0;
+	i = size - 1;
+	while (n)
+	{
+		ret[i--] = (n % 10) * sign + '0';
+		n /= 10;
+	}
+	return (ret);
+}
+
+char	*itoa_without_sign_u(unsigned long long n)
 {
 	char	*ret;
 	size_t	size;

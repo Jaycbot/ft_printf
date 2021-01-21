@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 23:47:46 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/19 22:42:46 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 00:15:31 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	content_init(t_contents *contents)
 	contents->precision = DEFAULT;
 	contents->width = 0;
 	contents->length = 0;
+	contents->cap = 0;
 }
 
 void	check_len(t_contents *contents, const char **format)

@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:41:53 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 22:35:17 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 00:48:47 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_contents
 	int	precision;
 	int	width;
 	int	length;
+	int	cap;
 }				t_contents;
 
 int				ft_printf(const char *format, ...);
@@ -60,8 +61,17 @@ void			pt_print(unsigned long pt);
 void			modify_width(t_contents *f);
 int				int_parse(t_contents *f, long long int n, int digit);
 void			itoa_free(long long int n);
+void			itoa_free_u(unsigned long long n);
 void			fill_space(int num, char c);
 char			*itoa_without_sign(long long int n);
+void			itoa_nosign_free_u(unsigned long long n);
 void			itoa_nosign_free(long long int n);
+int				print_neg_pre_un(t_contents *f, unsigned long long n, int d);
+int				unint_parse(t_contents *f, unsigned long long n, int d);
+int				print_pos_pre_un(t_contents *f, unsigned long long n, int d);
+char			*itoa_without_sign_u(unsigned long long n);
+void			print_hex(unsigned long long hex, int depth, int d, int cap);
+int				print_pos_pre_hex(t_contents *f, unsigned long long n, int d);
+int				print_neg_pre_hex(t_contents *f, unsigned long long n, int d);
 
 #endif
