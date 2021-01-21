@@ -9,8 +9,7 @@ int	main(void)
 
 	b = 1;
 	c = &b;
-	a = ft_printf("%d", -30);
+	a = ft_printf("%04.*d\n", 1,198);
 
-	printf("\n%d", a);
 	return (0);
 }

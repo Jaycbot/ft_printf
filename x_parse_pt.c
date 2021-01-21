@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 00:04:52 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 03:06:34 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 04:13:46 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			print_neg_pre_hex(t_contents *f, unsigned long long n, int digit)
 		while (i--)
 			ret_with_write(' ');
 	}
-	if (f->zero)
+	else if (f->zero)
 	{
 		while (i--)
 			ret_with_write('0');
@@ -51,7 +51,7 @@ static int	biggerpre(t_contents *f, unsigned long long n, int digit)
 {
 	int	i;
 
-	i = (f->width > f->precision) ? f->width : 0;
+	i = (f->width > f->precision) ? f->width - f->precision : 0;
 	if (f->minus)
 	{
 		print_with_pad(f, n, digit);

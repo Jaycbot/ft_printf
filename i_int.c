@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:19:33 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 03:04:58 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 04:13:03 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int			print_neg_pre_n(t_contents *f, long long int n, int digit)
 	int	minus;
 
 	minus = (n < 0) ? 1 : 0;
-	i = (f->width > digit + minus) ? f->width : 0;
+	i = (f->width >= (digit + minus)) ? (f->width - digit) - minus : 0;
 	if (f->minus)
 	{
 		itoa_free(n);
 		while (i--)
 			ret_with_write(' ');
 	}
-	if (f->zero)
+	else if (f->zero)
 	{
 		while (i--)
 			ret_with_write('0');
@@ -55,7 +55,7 @@ static int	biggerpre(t_contents *f, long long int n, int digit, int m)
 {
 	int	i;
 
-	i = (f->width > f->precision + m) ? f->width : 0;
+	i = (f->width > f->precision + m) ? f->width - f->precision - m : 0;
 	if (f->minus)
 	{
 		print_with_pad(f, n, digit, m);
