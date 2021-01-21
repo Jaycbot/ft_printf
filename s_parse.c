@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 04:08:42 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 00:02:19 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 01:07:30 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ static int	uni_flag(wchar_t *uni, int size, t_contents *f)
 {
 	int	n;
 
-	size = uni_sub_size(uni, 0, size);
+	size = uni_sub_size(uni, size);
 	n = (f->width < size) ? 0 : (f->width - size);
 	if (f->minus)
 	{
-		print_uni_substr(uni, 0, size);
+		print_uni_substr(uni, size);
 		while (n--)
 			ret_with_write(' ');
 	}
@@ -28,13 +28,13 @@ static int	uni_flag(wchar_t *uni, int size, t_contents *f)
 	{
 		while (n--)
 			ret_with_write('0');
-		print_uni_substr(uni, 0, size);
+		print_uni_substr(uni, size);
 	}
 	else
 	{
 		while (n--)
 			ret_with_write(' ');
-		print_uni_substr(uni, 0, size);
+		print_uni_substr(uni, size);
 	}
 	return ((f->width > size ? f->width : size));
 }
@@ -100,7 +100,7 @@ int			parse_s(t_contents *contents, va_list ap)
 	{
 		uni_str = va_arg(ap, int *);
 		if (!uni_str)
-			uni_str = "(null)";
+			uni_str = L"(null)";
 		count = parse_uni_s(uni_str, contents);
 	}
 	else

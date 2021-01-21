@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 20:59:44 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 00:46:46 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 01:04:54 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*itoa_without_sign(long long int n)
 
 	if (!n)
 		return (ft_strdup("0"));
-	size = size_n(n);
+	size = cal_digit(n);
 	sign = (n < 0) ? -1 : 1;
 	if (!(ret = (char *)malloc(sizeof(char) * (size + 1))))
 		return (NULL);
@@ -59,7 +59,7 @@ char	*itoa_without_sign_u(unsigned long long n)
 
 	if (!n)
 		return (ft_strdup("0"));
-	size = size_n(n);
+	size = cal_udigit(n);
 	sign = (n < 0) ? -1 : 1;
 	if (!(ret = (char *)malloc(sizeof(char) * (size + 1))))
 		return (NULL);

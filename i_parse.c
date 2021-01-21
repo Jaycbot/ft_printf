@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 04:33:27 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 23:12:40 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 00:58:28 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void		itoa_nosign_free(long long int n)
 	free(temp);
 }
 
-static int	cal_digit(long long int num)
+int			cal_digit(long long int num)
 {
 	int	digit;
 

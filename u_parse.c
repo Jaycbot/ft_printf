@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 23:15:06 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/21 23:21:51 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 01:04:05 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void		itoa_nosign_free_u(unsigned long long n)
 	free(temp);
 }
 
-static int	cal_digit(unsigned long long num)
+int			cal_udigit(unsigned long long num)
 {
 	int	digit;
 

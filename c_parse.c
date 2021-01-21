@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 04:03:22 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/19 22:57:23 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 00:50:32 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static int	parse_unicode(wchar_t uni, t_contents *f, int iter, int size)
 
 static int	parse_uni_width(wchar_t uni, t_contents *f)
 {
-	int written;
 	int size;
 	int i;
 

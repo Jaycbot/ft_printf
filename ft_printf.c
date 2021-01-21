@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:36:48 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 23:08:54 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 01:13:43 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int		parse_spec(char type, t_contents *contents, va_list ap)
 {
 	int ret;
 
+	ret = 0;
 	if (type == 'c')
 		ret = parse_c(contents, ap);
 	else if (type == 's')

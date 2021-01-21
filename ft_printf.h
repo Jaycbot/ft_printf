@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:41:53 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 00:48:47 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 01:11:05 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <unistd.h>
 # include <wchar.h>
-# include "./libf/libft.h"
+# include "./libft/libft.h"
 
 # define DEFAULT -1
 # define SPEC "scduixXp%"
@@ -55,8 +54,8 @@ int				ft_putstr(char *c);
 int				uni_size(wchar_t uni);
 int				uni_s_size(wchar_t *uni);
 void			print_substr(char const *s, unsigned int start, size_t len);
-void			print_uni_substr(wchar_t *uni, unsigned int start, size_t len);
-int				uni_sub_size(wchar_t *uni, unsigned int start, size_t len);
+void			print_uni_substr(wchar_t *uni, size_t len);
+int				uni_sub_size(wchar_t *uni, size_t len);
 void			pt_print(unsigned long pt);
 void			modify_width(t_contents *f);
 int				int_parse(t_contents *f, long long int n, int digit);
@@ -73,5 +72,8 @@ char			*itoa_without_sign_u(unsigned long long n);
 void			print_hex(unsigned long long hex, int depth, int d, int cap);
 int				print_pos_pre_hex(t_contents *f, unsigned long long n, int d);
 int				print_neg_pre_hex(t_contents *f, unsigned long long n, int d);
+int				cal_digit(long long int num);
+int				cal_udigit(unsigned long long num);
+int				hex_parse(t_contents *f, unsigned long long n, int digit);
 
 #endif

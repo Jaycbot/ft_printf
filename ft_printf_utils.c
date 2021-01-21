@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 23:47:46 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 00:15:31 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 00:52:57 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int		ft_putuni(wchar_t *uni)
 	int read_b;
 
 	read_b = 0;
-	while (*uni++)
-		read_b += encode_utf_8(uni);
+	while (*uni)
+		read_b += encode_utf_8(*uni++);
 	return (read_b);
 }
 
