@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:36:48 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 14:10:51 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 21:03:30 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,5 +119,5 @@ int		ft_printf(const char *format, ...)
 			ret += ret_with_write(*format);
 		++format;
 	}
-	return (ret);
+	return ((g_error) ? -1 : ret);
 }

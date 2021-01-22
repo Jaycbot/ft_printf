@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:41:53 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 20:40:24 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 21:02:16 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 # include "./libft/libft.h"
 
 # define DEFAULT -1
-# define SPEC "scduixXp%"
+# define SPEC "nscduixXp%"
 # define UTF_8_1B 0x7F
 # define UTF_8_2B 0x7FF
 # define UTF_8_3B 0xFFFF
 # define UTF_8_4B 0x1FFFFF
+
+int				g_error;
 
 typedef struct	s_contents
 {

@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 23:15:06 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 16:29:07 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 21:07:07 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ void		itoa_free_u(unsigned long long n)
 	char	*temp;
 
 	temp = ft_itoa_u(n);
+	if (!temp)
+	{
+		g_error = 1;
+		return ;
+	}
 	ft_putstr(temp);
 	free(temp);
 }
@@ -26,6 +31,11 @@ void		itoa_nosign_free_u(unsigned long long n)
 	char	*temp;
 
 	temp = itoa_without_sign_u(n);
+	if (!temp)
+	{
+		g_error = 1;
+		return ;
+	}
 	ft_putstr(temp);
 	free(temp);
 }

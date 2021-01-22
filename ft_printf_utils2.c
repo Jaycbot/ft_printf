@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 22:41:06 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 00:54:09 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 21:05:44 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ void	print_substr(char const *s, unsigned int start, size_t len)
 	char	*temp;
 
 	temp = ft_substr(s, start, len);
+	if (!temp)
+	{
+		g_error = 1;
+		return ;
+	}
 	ft_putstr(temp);
 	free(temp);
 }
