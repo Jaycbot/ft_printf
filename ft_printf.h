@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:41:53 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 16:57:13 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 20:40:24 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int				uni_s_size(wchar_t *uni);
 void			print_substr(char const *s, unsigned int start, size_t len);
 void			print_uni_substr(wchar_t *uni, size_t len);
 int				uni_sub_size(wchar_t *uni, size_t len);
-void			pt_print(unsigned long pt);
+void			pt_print(unsigned long pt, t_contents *f);
 void			modify_width(t_contents *f);
 int				int_parse(t_contents *f, long long int n, int digit);
 void			itoa_free(long long int n);
@@ -77,6 +77,6 @@ int				cal_udigit(unsigned long long num);
 int				hex_parse(t_contents *f, unsigned long long n, int digit);
 int				is_in(char *s, char c);
 void			print_minus(int is_m);
-int				size_memory(unsigned long pt);
+int				size_memory(unsigned long pt, t_contents *f);
 
 #endif
