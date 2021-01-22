@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:41:53 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 21:02:16 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 21:37:57 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int				parse_i(t_contents *contents, va_list ap);
 int				parse_x(char type, t_contents *contents, va_list ap);
 int				parse_p(t_contents *contents, va_list ap);
 int				parse_perc(t_contents *contents);
+void			parse_n(int n, int *ret);
 int				no_pre_uni(wchar_t *uni, t_contents *f);
 int				no_pre_plain(char *s, t_contents *f);
 int				ft_putuni(wchar_t *uni);
