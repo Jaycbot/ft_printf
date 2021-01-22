@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:19:33 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 05:11:44 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 15:38:54 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,19 @@ int			print_neg_pre_n(t_contents *f, long long int n, int digit)
 	int	minus;
 
 	minus = (n < 0) ? 1 : 0;
-	i = (f->width >= (digit + minus)) ? (f->width - digit) - minus : 0;
+	i = (f->width > (digit + minus)) ? (f->width - digit) - minus : 0;
 	if (f->minus)
 	{
 		if (digit)
 			itoa_free(n);
 		fill_space(i, ' ');
 	}
-	else if (f->zero)
+	else if (f->zero && f->precision < 0)
 	{
+		print_minus(minus);
 		fill_space(i, '0');
 		if (digit)
-			itoa_free(n);
+			itoa_nosign_free(n);
 	}
 	else
 	{
@@ -63,7 +64,7 @@ static int	biggerpre(t_contents *f, long long int n, int digit, int m)
 	}
 	else if (f->zero)
 	{
-		fill_space(i, '0');
+		fill_space(i, ' ');
 		print_with_pad(f, n, digit, m);
 	}
 	else
@@ -79,7 +80,7 @@ int			print_pos_pre_n(t_contents *f, long long int n, int digit)
 	int	minus;
 
 	minus = (n < 0) ? 1 : 0;
-	if (f->precision > digit)
+	if (f->precision >= digit)
 		return (biggerpre(f, n, digit, minus));
 	else
 		return (print_neg_pre_n(f, n, digit));

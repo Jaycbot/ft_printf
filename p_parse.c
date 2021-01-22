@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 04:44:17 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 02:51:22 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 17:00:33 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,16 @@ static int	pt_sep(int digit, t_contents *f, unsigned long pt)
 	if (f->minus)
 	{
 		pt_print(pt);
-		while (n--)
-			ret_with_write(' ');
+		fill_space(n, ' ');
 	}
 	else if (f->zero)
 	{
-		while (n--)
-			ret_with_write('0');
+		fill_space(n, '0');
 		pt_print(pt);
 	}
 	else
 	{
-		while (n--)
-			ret_with_write(' ');
+		fill_space(n, ' ');
 		pt_print(pt);
 	}
 	return ((f->width > digit + 2) ? f->width : digit + 2);
@@ -46,7 +43,7 @@ int			parse_p(t_contents *contents, va_list ap)
 	int				digit;
 
 	pt = va_arg(ap, unsigned long);
-	digit = (!pt) ? 0 : 12;
+	digit = size_memory(pt);
 	modify_width(contents);
 	return (pt_sep(digit, contents, pt));
 }

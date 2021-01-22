@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:41:53 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 02:23:36 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 16:57:13 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,7 @@ int				cal_digit(long long int num);
 int				cal_udigit(unsigned long long num);
 int				hex_parse(t_contents *f, unsigned long long n, int digit);
 int				is_in(char *s, char c);
+void			print_minus(int is_m);
+int				size_memory(unsigned long pt);
 
 #endif

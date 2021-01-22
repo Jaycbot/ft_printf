@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 23:15:06 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 01:04:05 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 16:29:07 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		itoa_free_u(unsigned long long n)
 {
 	char	*temp;
 
-	temp = ft_itoa(n);
+	temp = ft_itoa_u(n);
 	ft_putstr(temp);
 	free(temp);
 }
@@ -25,7 +25,7 @@ void		itoa_nosign_free_u(unsigned long long n)
 {
 	char	*temp;
 
-	temp = itoa_without_sign(n);
+	temp = itoa_without_sign_u(n);
 	ft_putstr(temp);
 	free(temp);
 }
@@ -55,16 +55,16 @@ int			parse_u(t_contents *contents, va_list ap)
 	if (contents->length == 0)
 	{
 		n = va_arg(ap, unsigned int);
-		return (unint_parse(contents, n, cal_digit(n)));
+		return (unint_parse(contents, n, cal_udigit(n)));
 	}
 	else if (contents->length == 1)
 	{
 		ln = va_arg(ap, unsigned long);
-		return (unint_parse(contents, ln, cal_digit(ln)));
+		return (unint_parse(contents, ln, cal_udigit(ln)));
 	}
 	else
 	{
 		lln = va_arg(ap, unsigned long long);
-		return (unint_parse(contents, lln, cal_digit(lln)));
+		return (unint_parse(contents, lln, cal_udigit(lln)));
 	}
 }

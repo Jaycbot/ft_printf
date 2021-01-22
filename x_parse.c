@@ -6,11 +6,26 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 04:37:50 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 01:12:15 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 16:11:25 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	hex_size(unsigned long long num)
+{
+	int	digit;
+
+	if (num == 0)
+		return (1);
+	digit = 0;
+	while (num)
+	{
+		++digit;
+		num /= 16;
+	}
+	return (digit);
+}
 
 void		print_hex(unsigned long long num, int depth, int digit, int capital)
 {
@@ -38,16 +53,16 @@ int			parse_x(char type, t_contents *contents, va_list ap)
 	if (contents->length == 0)
 	{
 		n = va_arg(ap, unsigned int);
-		return (hex_parse(contents, n, cal_udigit(n)));
+		return (hex_parse(contents, n, hex_size(n)));
 	}
 	else if (contents->length == 1)
 	{
 		ln = va_arg(ap, unsigned long);
-		return (hex_parse(contents, ln, cal_udigit(ln)));
+		return (hex_parse(contents, ln, hex_size(ln)));
 	}
 	else
 	{
 		lln = va_arg(ap, unsigned long long);
-		return (hex_parse(contents, lln, cal_udigit(lln)));
+		return (hex_parse(contents, lln, hex_size(lln)));
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 12:38:33 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/20 21:14:06 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 16:25:32 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 char			**ft_split(char const *s, char c);
-int				ft_atoi(const char *nptr);
+long long int	ft_atoi(const char *nptr);
 int				ft_isdigit(int c);
 int				ft_isalpha(int c);
 int				ft_isalnum(int c);
@@ -66,5 +66,6 @@ void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *));
+char			*ft_itoa_u(unsigned long long n);
 
 #endif

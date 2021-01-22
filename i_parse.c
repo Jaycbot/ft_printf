@@ -6,7 +6,7 @@
 /*   By: jaehchoi <jaehchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 04:33:27 by jaehchoi          #+#    #+#             */
-/*   Updated: 2021/01/22 00:58:28 by jaehchoi         ###   ########.fr       */
+/*   Updated: 2021/01/22 13:46:38 by jaehchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,12 @@ int			cal_digit(long long int num)
 		num /= 10;
 	}
 	return (digit);
+}
+
+void		print_minus(int is_m)
+{
+	if (is_m)
+		ret_with_write('-');
 }
 
 int			parse_i(t_contents *contents, va_list ap)
